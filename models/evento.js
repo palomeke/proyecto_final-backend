@@ -8,13 +8,14 @@ const EventoSchema = Schema({
   notes: {
     type: String,
   },
-  start: {
-    type: Date,
-    required: true,
+  status: {
+    type: String,
+    enum: ["Pending", "Running", "Completed", "Failed"],
+    default: "Pending",
   },
-  end: {
+  dueDate: {
     type: Date,
-    required: true,
+    required: false,
   },
   user: {
     type: Schema.Types.ObjectId,

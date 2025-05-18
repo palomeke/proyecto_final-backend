@@ -27,12 +27,7 @@ router.get("/", getEventos);
 //Crear un nuevo evento
 router.post(
   "/",
-  [
-    check("title", "El titulo es obligatorio").not().isEmpty(),
-    check("start", "Fecha de inicio es obligatoria").custom(isDate),
-    check("end", "Fecha de finalizacion es obligatoria").custom(isDate),
-    validarCampos,
-  ],
+  [check("title", "El titulo es obligatorio").not().isEmpty(), validarCampos],
   crearEvento
 );
 
